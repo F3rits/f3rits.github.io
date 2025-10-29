@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text F*cker</title>
+  <style>
+    body {
+      font-family: Monospace;
+      background: black;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      width: 90%;
+      max-width: 600px;
+      height: 120px;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 25px;
+      font-size: 1rem;
+      border: none;
+      background-color: #ffffff;
+      color: black;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: Monospace;
+    }
+
+    button:hover {
+      background-color: #D3D3D3;
+    }
+
+    .output {
+      margin-top: 25px;
+      background: white;
+      padding: 20px;
+      color:black;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    #finalText {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: black;
+      font-family: Monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>Text F*cker</h1>
+
+  <textarea id="inputText" placeholder="Enter your text here..."></textarea>
+  <button onclick="runTranslation()">Run</button>
+
+  <div class="output">
+    <strong>Final Output:</strong>
+    <div id="finalText">—</div>
+  </div>
+
+  <script>
+    const languages = [
+      "en", "es", "fr", "de", "it", "ja", "ko", "zh-CN", "ru", "pt", 
+      "ar", "tr", "hi", "sv", "nl", "pl", "fi", "el", "no", "th"
+    ];
+
+    async function translateText(text, fromLang, toLang) {
+      const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${fromLang}|${toLang}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      return data.responseData.translatedText;
+    }
+
+    async function runTranslation() {
+      const input = document.getElementById("inputText").value.trim();
+      const output = document.getElementById("finalText");
+
+      if (!input) {
+        alert("Please enter some text!");
+        return;
+      }
+
+      output.textContent = "Translating...";
+
+      let text = input;
+      let currentLang = "en";
+
+      
+      const randomLangs = Array.from({ length: 12 }, () => {
+        let lang;
+        do {
+          lang = languages[Math.floor(Math.random() * languages.length)];
+        } while (lang === "en");
+        return lang;
+      });
+
+      
+      for (const lang of randomLangs) {
+        text = await translateText(text, currentLang, lang);
+        currentLang = lang;
+      }
+
+      
+      text = await translateText(text, currentLang, "en");
+
+      output.textContent = text;
+    }
+  </script>
+</body>
+</html>
