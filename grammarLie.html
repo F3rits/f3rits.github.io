@@ -138,7 +138,7 @@
       const availableLangs = languages.filter(lang => lang !== "en");
       const randomLangs = [];
 
-      while (randomLangs.length < 12 && availableLangs.length > 0) {
+      while (randomLangs.length < 15 && availableLangs.length > 0) {
         const index = Math.floor(Math.random() * availableLangs.length);
         const lang = availableLangs.splice(index, 1)[0];
         randomLangs.push(lang);
