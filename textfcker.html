@@ -122,6 +122,7 @@
         let lang;
         do {
           lang = languages[Math.floor(Math.random() * languages.length)];
+			if (lang = currentLang){let lang= languages[Math.floor(Math.random() * languages.length)];}
         } while (lang === "en");
         return lang;
       });
