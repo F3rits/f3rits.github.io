@@ -122,11 +122,12 @@
         let lang;
         do {
           lang = languages[Math.floor(Math.random() * languages.length)];
-			if (lang = currentLang){let lang= languages[Math.floor(Math.random() * languages.length)];}
         } while (lang === "en");
         return lang;
       });
-
+if (lang = currentLang){
+	let lang= languages[Math.floor(Math.random() * languages.length)];
+}
       
       for (const lang of randomLangs) {
         text = await translateText(text, currentLang, lang);
