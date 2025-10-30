@@ -69,11 +69,22 @@
     <script>
       var input;
       function encode() {
-      let input =  document.getElementByID("input");
+  const text = document.getElementById('input').value;
+      let output = '';
+      for (let i = 0; i < text.length; i++) {
+        let binary = text.charCodeAt(i).toString(2).padStart(8, '0');
+        output += binary.replace(/0/g, '6').replace(/1/g, '7') + ' ';}
+document.getElementById('output').value = output;
         
       }
       function decode() {
-      let input =  document.getElementByID("input");
+    const input = document.getElementById('input').value.trim();
+      let output = '';
+      const groups = input.split(/\s+/);
+      for (let group of groups) {
+        let binary = group.replace(/6/g, '0').replace(/7/g, '1');
+        output += String.fromCharCode(parseInt(binary, 2));}
+        document.getElementById('output').value = output;
         
       }
     </script>
