@@ -1,79 +1,17 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Ferits site</title>
-		<link rel = "icon" type = "image/png" href="feritsIcon.png">
-		<style>
-			body{ margin: 20px;
-				 height:100%;
-		    font-size: 20px;
-				font-family: monospace;
-				color: white;
-				background: black;}
-			h1{
-				text-align: center;
-				}
-			footer{
-			      position: fixed;
-     			 bottom: 0;
-     			 width: 100%;
-     			 text-align: center;
-     			 padding: 20px 0;
-   			   background: black;
-			}
-			a{
-				text-decoration: none;
-				color: #5f8fa6;
-			}
-			
-			a:hover{color: #4E778A;
-			
-			}
-			#intro{
-				text-align: center;
-			}
-		
-		.projectLink {
-				font-size: 25px;
-			margin: 0;
-			text-decoration: underline;
-				}
-			.projectDescription{
-				margin:10px;
-				color: white;
-			}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carmen chase</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <img id="player" src="player.png">
+    <img id="background" src="background.png">
+    <img id="enemy" src="enemy.png">
 
-		</style>
-  </head>
-  <body>
-	  <h1>Ferits Site</h1>
-
-    <p id="intro"></p>
-	  <script>
-		  const text = "I totally know what I'm doing.";
-		  let i = 0;
-		  function intro(){
-			  if (i < text.length) {document.getElementById('intro').textContent += text.charAt(i);
-			  i++;
-			  setTimeout(intro, 20);}}
-		  intro();
-	  </script>
-  <h2>Projects:</h2>
-	  	
-		  <a href="https://f3rits.github.io/grammarLie.html"  class = "projectLink">GrammarLIE</a>
-	  <p class="projectDescription">Helps you fail every assignment by translating whatever you write into nonsense.</p>
-	  <br>
-	  	  <a href="https://f3rits.github.io/67Translate.html"  class = "projectLink">67 Translate</a>
-	  <p class="projectDescription">Translates whatever you write into 6 and 7.</p>
-
-	 
-	</body>
-	<footer>
-		<p>© 2025 Ferits</p> <div class="contact"> <a href="mailto:ferits@tuta.io" target="_blank">📧 Email</a> <a href="https://discord.com/users/1127678527291007067" target="_blank">💬 Discord</a></div>
-	</footer>
+    <script src="script.js"></script>
+</body>
 </html>
-
-
-
-
-
