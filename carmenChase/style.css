@@ -1,0 +1,23 @@
+body{
+    background-color: black;
+}
+#canvas{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid white;
+    height: 100%;
+}
+#player{
+     width:200px;
+    display:none;
+}
+
+#enemy{
+    display:none;
+}
+
+#background{
+    display:none;
+}
