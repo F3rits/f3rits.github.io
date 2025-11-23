@@ -179,7 +179,7 @@ let enemyInterval = 1500;
 function updateScreen(timeStamp){
 const deltaTime = timeStamp - lastTime;
 lastTime  = timeStamp;
-enemyInterval-=.3;
+enemyInterval-=.2;
 ctx.clearRect(0,0, canvas.width, canvas.height);
 background.draw(ctx);
 background.update();
